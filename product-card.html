@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tasnim | Product Card</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+  }
+  h1 {
+    color: #2d3436;
+    margin-bottom: 25px;
+  }
+  h1 span { color: #00b894; }
+
+  .products {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1000px;
+  }
+  .product-card {
+    background: #fff;
+    width: 220px;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+  }
+  .product-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+  }
+  .product-info {
+    padding: 15px;
+    text-align: center;
+  }
+  .product-info h3 {
+    font-size: 16px;
+    color: #2d3436;
+    margin-bottom: 5px;
+  }
+  .product-info p.price {
+    color: #00b894;
+    font-weight: bold;
+    margin-bottom: 12px;
+  }
+  .product-info button {
+    width: 100%;
+    padding: 10px;
+    background: #00b894;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  .product-info button:hover { background: #019874; }
+</style>
+</head>
+<body>
+
+  <h1>Tasnim <span>Store</span></h1>
+
+  <div class="products">
+    <div class="product-card">
+      <img src="https://picsum.photos/seed/tasnimshoe/400/300" alt="Sneakers">
+      <div class="product-info">
+        <h3>Running Sneakers</h3>
+        <p class="price">$59.99</p>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://picsum.photos/seed/tasnimwatch/400/300" alt="Watch">
+      <div class="product-info">
+        <h3>Classic Watch</h3>
+        <p class="price">$89.99</p>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://picsum.photos/seed/tasnimbag/400/300" alt="Bag">
+      <div class="product-info">
+        <h3>Leather Bag</h3>
+        <p class="price">$45.00</p>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

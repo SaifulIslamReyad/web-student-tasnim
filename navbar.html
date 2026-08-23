@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tasnim | Navbar</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Arial, sans-serif; background: #f9f9f9; }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2d3436;
+    padding: 15px 40px;
+    flex-wrap: wrap;
+  }
+  .navbar .logo {
+    color: #ffeaa7;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+  }
+  .navbar ul li a {
+    color: #dfe6e9;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 5px 8px;
+    transition: 0.3s;
+  }
+  .navbar ul li a:hover {
+    color: #ffeaa7;
+    border-bottom: 2px solid #ffeaa7;
+  }
+
+  /* Responsive: stack menu below logo on small screens */
+  @media (max-width: 600px) {
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .navbar ul {
+      margin-top: 12px;
+      gap: 15px;
+    }
+  }
+
+  .content {
+    padding: 40px;
+    text-align: center;
+    color: #636e72;
+  }
+</style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">Tasnim</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="content">
+    <p>Resize the browser window to see the navbar become responsive.</p>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tasnim | Hamburger Navbar</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Arial, sans-serif; background: #f9f9f9; }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2d3436;
+    padding: 15px 40px;
+    position: relative;
+  }
+  .navbar .logo {
+    color: #ffeaa7;
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+  }
+  .nav-links a {
+    color: #dfe6e9;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 5px 8px;
+    transition: 0.3s;
+  }
+  .nav-links a:hover {
+    color: #ffeaa7;
+    border-bottom: 2px solid #ffeaa7;
+  }
+
+  /* Hamburger icon - hidden on desktop */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+  .hamburger span {
+    width: 26px;
+    height: 3px;
+    background: #dfe6e9;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  /* Hamburger animates into an X when menu is open */
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Responsive behavior */
+  @media (max-width: 700px) {
+    .hamburger { display: flex; }
+
+    .nav-links {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #2d3436;
+      flex-direction: column;
+      gap: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    .nav-links.open {
+      max-height: 300px;
+    }
+    .nav-links li {
+      border-top: 1px solid #3b3f41;
+    }
+    .nav-links a {
+      display: block;
+      padding: 15px 40px;
+    }
+    .nav-links a:hover {
+      border-bottom: none;
+      background: #3b3f41;
+    }
+  }
+
+  .content {
+    padding: 40px;
+    text-align: center;
+    color: #636e72;
+  }
+</style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">Tasnim</div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+
+    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <div class="content">
+    <p>Resize the browser below 700px width to see the hamburger menu appear.</p>
+  </div>
+
+  <script>
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburgerBtn.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      hamburgerBtn.classList.toggle('active');
+      hamburgerBtn.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close menu when a link is clicked (nice for mobile UX)
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        hamburgerBtn.classList.remove('active');
+        hamburgerBtn.setAttribute('aria-expanded', false);
+      });
+    });
+  </script>
+
+</body>
+</html>
